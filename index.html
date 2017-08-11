@@ -39,7 +39,7 @@
       background-color: rgba(0,0,255,0.5);
     }
     .comicStyle{
-      background-color: rgb(128,128,128,0.5);
+      background-color: rgba(128,128,128,0.3);
     }
     nav{
       background-color: black;
@@ -92,6 +92,8 @@
       mediathek.addBook("Polt muss weinen","Alfred Komarek","Crime","Haymon","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Alfred_Komarek%2C_Rund_um_die_Burg.jpg/1024px-Alfred_Komarek%2C_Rund_um_die_Burg.jpg",3,0.2);
       mediathek.addDvd("Der Herr der Ringe: Die Gefährten","Peter Jackson","Drama","Warner Home Video","https://upload.wikimedia.org/wikipedia/de/e/e4/Der_Herr_der_Ringe_1_logo.jpg",3,178);
       mediathek.addDvd("Fluch der Karibik","Gore Verbinski","Drama","Walt Disney Pictures","https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Fluch_der_karibik.svg/2000px-Fluch_der_karibik.svg.png",4,137);
+      mediathek.addComic("Asterix bei den Briten","René Goscinny","Children","Ehapa Comic Collection","https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Ast%C3%A9rix_%26_Ob%C3%A9lix_Bruxelles_rue_de_la_Buanderie.jpg/1024px-Ast%C3%A9rix_%26_Ob%C3%A9lix_Bruxelles_rue_de_la_Buanderie.jpg",2);
+      mediathek.addComic("Die Goldmine von Dick Digger","Dick Digger","Children","Ehapa Comic Collection","https://upload.wikimedia.org/wikipedia/commons/5/5c/Image-luky-luke-14.jpg",2);
       updateMediathek();
     }
 
@@ -133,7 +135,7 @@
       if (checkValidInput(title, author, genre, publisher, duration, weight, imageSrc, rating, typ) == true) {
         switch (typ) {
           case ("CD"):
-            mediathek.addCD(title, author, genre, publisher, imageSrc, rating, duration);
+            mediathek.addCd(title, author, genre, publisher, imageSrc, rating, duration);
             break;
           case ("Book"):
             mediathek.addBook(title, author, genre, publisher, imageSrc, rating, weight);

@@ -38,7 +38,12 @@ abstract class Media{
     return this.image;
   }
   getRating(){
-    return this.rating;
+    let rate:string = '';
+    for(let i=0;i<this.rating;i++){
+      rate+='<i class=\"glyphicon glyphicon-star\"></i>'
+
+    }
+    return rate;
   }
   render(){
 
@@ -63,6 +68,7 @@ class Cd extends Media{
         bootstrapTag += '<li>' + 'Genre: ' + super.getGenre() + '</li>';
         bootstrapTag += '<li>' + 'Publisher: '+ super.getPublisher() + '</li>';
         bootstrapTag += '<li>' + 'Duration: ' + this.durationOfMinutes + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'CD' +'</li>';
         bootstrapTag += '<li>' + 'Rating: ' + super.getRating() + '</li>';
         bootstrapTag += '</ul>';
       bootstrapTag += '</div>';
@@ -88,6 +94,7 @@ class Book extends Media{
         bootstrapTag += '<li>' + 'Genre: ' + super.getGenre() + '</li>';
         bootstrapTag += '<li>' + 'Publisher: '+ super.getPublisher() + '</li>';
         bootstrapTag += '<li>' + 'Weight: ' +this.weight + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'Book' +'</li>';
         bootstrapTag += '<li>' + 'Rating: ' + super.getRating() + '</li>';
         bootstrapTag += '</ul>';
       bootstrapTag += '</div>';
@@ -114,6 +121,7 @@ class Dvd extends Media{
         bootstrapTag += '<li>' + 'Genre: ' +super.getGenre() + '</li>';
         bootstrapTag += '<li>' + 'Publisher: '+ super.getPublisher() + '</li>';
         bootstrapTag += '<li>' + 'Duration: ' + this.durationOfMinutes + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'DVD' +'</li>';
         bootstrapTag += '<li>' + 'Rating: '+ super.getRating() + '</li>';
         bootstrapTag += '</ul>';
       bootstrapTag += '</div>';
@@ -136,7 +144,8 @@ class Comic extends Media{
         bootstrapTag += '<ul>';
         bootstrapTag += '<li>' + 'Autor:'+ super.getAuthor() + '</li>';
         bootstrapTag += '<li>' + 'Genre: '+ super.getGenre() + '</li>';
-        bootstrapTag += '<li>' + 'Publisher: '+ + super.getPublisher() + '</li>';
+        bootstrapTag += '<li>' + 'Publisher: '+ super.getPublisher() + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'Comic' +'</li>';
         bootstrapTag += '<li>' +  'Rating: '+super.getRating() + '</li>';
         bootstrapTag += '</ul>';
       bootstrapTag += '</div>';
@@ -150,6 +159,7 @@ class Mediathek{
     this.mediaList = new Array<Media>();
   }
   addComic(title:string,author:string,genre:Genre,publisher:string,image:string,rating:number){
+
     let comicMedia:Media = new Comic(title,author,genre,publisher,image,rating);
     this.mediaList.push(comicMedia);
   }
@@ -168,6 +178,7 @@ class Mediathek{
   showMediaList(){
     console.log(this.mediaList);
   }
+
   renderMediathek(){
     let bootstrapStr:string = '';
     for(let i= 0;i<this.mediaList.length;i++){

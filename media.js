@@ -43,7 +43,11 @@ var Media = (function () {
         return this.image;
     };
     Media.prototype.getRating = function () {
-        return this.rating;
+        var rate = '';
+        for (var i = 0; i < this.rating; i++) {
+            rate += '<i class=\"glyphicon glyphicon-star\"></i>';
+        }
+        return rate;
     };
     Media.prototype.render = function () {
     };
@@ -68,6 +72,7 @@ var Cd = (function (_super) {
         bootstrapTag += '<li>' + 'Genre: ' + _super.prototype.getGenre.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Publisher: ' + _super.prototype.getPublisher.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Duration: ' + this.durationOfMinutes + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'CD' + '</li>';
         bootstrapTag += '<li>' + 'Rating: ' + _super.prototype.getRating.call(this) + '</li>';
         bootstrapTag += '</ul>';
         bootstrapTag += '</div>';
@@ -95,6 +100,7 @@ var Book = (function (_super) {
         bootstrapTag += '<li>' + 'Genre: ' + _super.prototype.getGenre.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Publisher: ' + _super.prototype.getPublisher.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Weight: ' + this.weight + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'Book' + '</li>';
         bootstrapTag += '<li>' + 'Rating: ' + _super.prototype.getRating.call(this) + '</li>';
         bootstrapTag += '</ul>';
         bootstrapTag += '</div>';
@@ -122,6 +128,7 @@ var Dvd = (function (_super) {
         bootstrapTag += '<li>' + 'Genre: ' + _super.prototype.getGenre.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Publisher: ' + _super.prototype.getPublisher.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Duration: ' + this.durationOfMinutes + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'DVD' + '</li>';
         bootstrapTag += '<li>' + 'Rating: ' + _super.prototype.getRating.call(this) + '</li>';
         bootstrapTag += '</ul>';
         bootstrapTag += '</div>';
@@ -145,7 +152,8 @@ var Comic = (function (_super) {
         bootstrapTag += '<ul>';
         bootstrapTag += '<li>' + 'Autor:' + _super.prototype.getAuthor.call(this) + '</li>';
         bootstrapTag += '<li>' + 'Genre: ' + _super.prototype.getGenre.call(this) + '</li>';
-        bootstrapTag += '<li>' + 'Publisher: ' + +_super.prototype.getPublisher.call(this) + '</li>';
+        bootstrapTag += '<li>' + 'Publisher: ' + _super.prototype.getPublisher.call(this) + '</li>';
+        bootstrapTag += '<li>' + 'Type: ' + 'Comic' + '</li>';
         bootstrapTag += '<li>' + 'Rating: ' + _super.prototype.getRating.call(this) + '</li>';
         bootstrapTag += '</ul>';
         bootstrapTag += '</div>';
